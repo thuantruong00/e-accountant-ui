@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-accountant</title>
+    <link rel="stylesheet" href="./assets/style/index.css">
+    <link rel="stylesheet" href="./assets/style/reset.css">
+</head>
+
+<body>
+    <div class="relative">
+
+
+
+        <div class="wrap-body">
+            <div class="left-col">
+                <script src="https://accounts.google.com/gsi/client" async defer></script>
+                <div id="g_id_onload"
+                    data-client_id="562534482065-euo6uusfbalt3lhe2gu39j2e465jna8k.apps.googleusercontent.com"
+                    data-context="signin" data-ux_mode="popup" data-callback="login" data-auto_select="true"
+                    data-itp_support="true">
+                </div>
+
+                <div class="g_id_signin" data-type="icon" data-shape="square" data-theme="outline"
+                    data-text="signin_with" data-size="large">
+                </div>
+                <div class="user-box">
+                    <img id="avatar" class="avatar" src="./assets/images/user.png" alt="">
+                    <p id="user-name">Anonymous</p>
+                    <div class="user-info"></div>
+                </div>
+            </div>
+            <div class="main">
+                <div class="wrap-search">
+                    <input class="input-search" type="text" placeholder="text">
+                    <a href="#" class="submit">Enter</a>
+                </div>
+                <div class="wrap-result relative">
+                    <div class="result"></div>
+                    <div class="vote-box d-none">
+                        <!-- <div class="title">Bạn có hài lòng với câu trả lời này ko?</div> -->
+                        <!-- <a href="#" onclick="vote(1)" class="active">Có</a> -->
+                        <!-- <a href="#" onclick="vote(0)" class="active">Không</a> -->
+                        <a href="#" onclick="vote(2)" class="vote-btn active">
+                            <img class="" src="./assets/images/heart.png" alt="">
+                        </a>
+                        <a href="#" onclick="vote(1)" class="vote-btn active">
+                            <img class="" src="./assets/images/like.png" alt="">
+                        </a>
+                        <a href="#" onclick="vote(0)" class="vote-btn active">
+                            <img class="" src="./assets/images/dislike.png" alt="">
+                        </a>
+                    </div>
+                    <div class="wrap-loading d-none">
+                        <img class="loading" src="./assets/images/loading.png" alt="">
+                    </div>
+                </div>
+
+                <div class="more">
+                    <div class="title">Related searches</div>
+                    <div class="wrap-list" id="recommend">
+                        <ul>
+                            <li>
+                                <a href=""></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="right-col">
+                <div class="bookmark-wrap">
+
+                    <div class="bookmark-form">
+                        <!-- <h3>Bookmark</h3> -->
+                        <h4>Address</h4>
+                        <input type="text" id="bookmark-in1" placeholder="http://e-accountant.com">
+                        <h4>Title</h4>
+                        <input type="text" id="bookmark-in2" placeholder="e-accountant">
+                        <div class="wrap-address-type">
+                            <div>
+                                <label for="address-bookmark">Bookmark</label>
+                                <input class="address-type" type="radio" id="address-bookmark" name="address-type" checked value="bookmark">
+                            </div>
+                            <div>
+                                <label for="address-tool">Tool</label>
+                                <input class="address-type" type="radio" id="address-tool" name="address-type" value="tool">
+                            </div>
+                        </div>
+                        <a href="#" class="bookmark-submit-btn">Add</a>
+                    </div>
+                    <h4>Tool</h4>
+                    <div class="tool-view address-box">
+
+                    </div>
+                    <h4>Bookmark</h4>
+                    <div class="bookmark-view address-box">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="wrap-popup-register d-none">
+            <div class="box">
+                <h3 class="title-register-form">Đăng ký tài khoản</h3>
+                <p>Vui lòng điền đầy đủ thông tin</p><br>
+                <div class="wrap-job">
+                    <label for="job">Nghề nghiệp của bạn ?<span class="required"> *</span></label>
+                    <select id="job">
+                        <option value="kế toán kinh doanh">kế toán kinh doanh</option>
+                        <option value="kế toán thuế">kế toán thuế</option>
+                        <option value="kế toán kho">kế toán kho</option>
+                        <option value="others">others</option>
+                    </select>
+                </div>
+                <div class="wrap-software">
+                    <label for="software">Phần mềm kế toán đang dùng ?<span class="required"> *</span></label>
+                    <select id="software">
+                        <option value="Xero">Xero</option>
+                        <option value="SAP">SAP</option>
+                        <option value="Sage 50">Sage 50</option>
+                        <option value="others">others</option>
+                    </select>
+                </div>
+                <div class="wrap-company">
+                    <label for="company">Công ty của bạn ?<span class="required"> *</span><span class="error">Kiểm tra
+                            lại
+                            thông tin</span></label>
+                    <input id="company" type="text">
+                </div>
+                <div class="wrap-age">
+                    <label for="age">Tuổi của bạn ?<span class="required"> *</span><span class="error">Kiểm tra lại
+                            thông tin</span></label>
+                    <input id="age" type="number" min="1" max="200" step="1" value="18">
+                </div>
+                <a href="#" class="submit2 submit2-active">submit</a>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    window.onload = function () {
+
+    }
+    // let uri = window.location.host; //frontend
+    // let host = window.location.host.split(":"); //====
+    // let path = window.location.protocol + "//" + host[0] + ":8001";
+    let path = "http://localhost:8001";
+
+
+    let obj = { user_email: "" };
+    // obj.user_email
+    let token = '';
+    let topicId = null;
+    let rating_flag = 0;
+    function login(e) {
+        console.log("OK")
+        token = e.credential;
+        // console.log(e.credential)
+        // console.log(e)
+        $.ajax({
+            url: `${path}/auth`,
+            type: "POST",
+            data: { token: e.credential }
+        })
+            .then(function (e) {
+                console.log(e)
+                if (e.status) {
+                    $("#avatar").attr('src', e.data.picture);
+                    $("#user-name").text(e.data.name);
+                    obj.user_email = e.data.email;
+                    if (e.data) {
+                        renderUserInfo(e.data.job, e.data.age, e.data.software, e.data.company, e.data.email)
+                        addressGetList()
+                    }
+                }
+                if (e.is_new_user) {
+                    $('.wrap-popup-register').removeClass('d-none');
+                }
+
+            });
+    }
+    function renderUserInfo(job, age, software, company, email) {
+        // <p class="item-email">${e.data.email}</p>
+        // <p class="item-info"><span>Status:</span><span>${e.data.user_status}</span></p>
+        let str = `
+                            
+                <p class="item-info"><span>Position:</span><span>${job}</span></p>
+                <p class="item-info"><span>Company:</span><span>${company}</span></p>
+                <p class="item-info"><span>Age:</span><span>${age}</span></p>
+                <p class="item-info"><span>Software:</span><span>${software}</span></p>
+                <p class="item-info"><span>Email:</span><span>${email}</span></p>
+                
+            `;
+        $('.user-info').html(str)
+    }
+
+
+
+    // ===== ===== ===== ===== ===== ===== ===== ===== =====
+    // ||||||||||||||||| func
+    // ===== ===== ===== ===== ===== ===== ===== ===== =====
+    $('.input-search').keypress(async function (event) {
+        let key_par = event.originalEvent;
+        // console.log(key_par.key + " " + key_par.keyCode);
+        if (key_par.keyCode == 13) {
+            await submit_func(null);
+        }
+    })
+    let block = 1;
+    let block2 = 1;
+    async function submit_func(virtual_topic) {
+        // console.log("waiting..." + block)
+        if (block) {
+            block = 0;
+            // console.log("action");
+            // $(".waiting-box").removeClass("d-none"); // animation event
+            let topic = virtual_topic || $('.input-search').val();
+            $(".wrap-loading").removeClass('d-none')
+            // console.log('topic', topic)
+            // check filter group
+            $.ajax({
+                url: `${path}/query`,
+                type: "POST",
+                data: {
+                    topic: topic,
+                    token: token || null,
+                }
+            })
+                .then(function (e) {
+                    // console.log(e)
+                    let recommend = e.recommend;
+                    let recommend_str = '';
+                    $(".wrap-loading").addClass('d-none')
+                    $(".result").html(e.value)
+                    if (e.recommend.length > 0) {
+                        for (const key in recommend) {
+                            recommend_str += `
+                                <li><a href="javascript:newQuery('${recommend[key]}')">${recommend[key]}</a></li>
+                            `;
+                        }
+                    }
+                    $('#recommend ul').html($(recommend_str))
+
+
+                    topicId = e.topic;
+                    // console.log(topicId)
+                    rating_flag = 1// access for user
+                    $('.vote-box').removeClass('d-none')
+                    // if (e.status) {
+                    //     $("#avatar").attr('src', e.avatar);
+                    //     $("#user-name").text(e.name);
+                    //     document.cookie = `user=${e.user}`;
+                    // }
+
+                });
+
+
+            // timeout for next request
+            setTimeout(() => {
+                block = 1;
+            }, 10000)
+        }
+    }
+
+    // ==================================
+    // create user -> update info
+    async function create_user() {
+        // console.log('create user');
+        // validated
+        let next = true;
+        let job_check = $("#job").val();
+        let sw_check = $("#software").val();
+        let age_check = $("#age").val();
+        let company_check = $("#company").val();
+        // console.log(job_check, sw_check, age_check)
+        if (Number(age_check) < 1 || Number(age_check) > 200) {
+            $(".wrap-age").addClass('warning');
+            next = false;
+        }
+        if (company_check.length < 2) {
+            $(".wrap-company").addClass('warning');
+            next = false;
+        }
+        // =========
+
+        if (block2 && next) {
+            // block2 = 0;
+            // console.log(job_check, sw_check, age_check, token)
+            // console.log('pass , create request to server');
+            let data = {
+                job: job_check,
+                age: age_check,
+                company: company_check,
+                software: sw_check,
+                token: token
+            }
+
+            $.ajax({
+                url: `${path}/user/update-info`,
+                dataType: "json",
+                type: "POST",
+                data: data,
+            })
+                .then(function (e) {
+                    // console.log(e)
+                    $('.wrap-popup-register').addClass('d-none');
+                    renderUserInfo(job_check, age_check, sw_check, company_check, obj.user_email)
+                });
+
+
+
+        }
+
+
+        // timeout for next request
+        // setTimeout(() => {
+        //     block2 = 1;
+        // }, 8000)
+
+    }
+    // ==================================
+    // vote
+    async function vote(tf) {
+        if (rating_flag) {
+            rating_flag = 0; // block 
+            // $('.vote-box').addClass('d-none')
+            let topic = $('.input-search').val();
+            let data = {
+                topicId: topicId,
+                rating: tf,
+                token: token || null
+            }
+
+            $.ajax({
+                url: `${path}/topic/update`,
+                dataType: "json",
+                type: "POST",
+                data: data,
+            })
+                .then(function (e) {
+                    // console.log(e)
+                    if (e.status) {
+                        $('.vote-box').addClass('d-none')
+                    }
+                });
+        }
+
+    }
+    // ==================================
+    // bookmark bookmark-submit-btn
+    $('#bookmark-in1').change(function () {
+        let link = $(this).val();
+        // console.log(path)
+        $('#bookmark-in2').val(link)
+    })
+    $('.bookmark-submit-btn').click(function () {
+        // console.log('submit')
+        bookmarkSubmit()
+    })
+    async function bookmarkSubmit() {
+        let link = $('#bookmark-in1').val();
+        let title = $('#bookmark-in2').val();
+        let address_type;
+        $(".address-type").each(function(){
+            if($(this).prop('checked')){
+                address_type = $(this).val()
+            }
+        })
+        // console.log(address_type)
+        let data = {
+            link: link,
+            title: title,
+            address_type:address_type,
+            token: token || null
+        }
+        if (token.length > 1 && link.length > 5 && title.length > 1) {
+            // console.log(data)
+            $.ajax({
+                url: `${path}/address/add`,
+                dataType: "json",
+                type: "POST",
+                data: data,
+            })
+                .then(function (e) {
+                    // console.log(e)
+                    addressGetList()
+                });
+        }
+
+    }
+
+    // $('.close').click(function(){
+    //     // let id = $(this).props('obj')
+    //     console.log('x')
+    //     // let data = {
+    //     //     id:
+    //     //     token: token || null
+    //     // }
+    // })
+
+    function deleteItem(id) {
+        // let id = $(this).attr('obj')
+        let data = {
+            id: id,
+            token: token || null
+        }
+        // console.log(data)
+        $.ajax({
+            url: `${path}/address/delete`,
+            dataType: "json",
+            type: "POST",
+            data: data,
+        })
+            .then(function (e) {
+                // console.log(e)
+                addressGetList()
+            });
+    }
+    async function addressGetList() {
+        let data = {
+            token: token || null
+        }
+        if (token.length > 1) {
+            // console.log(data)
+            $.ajax({
+                url: `${path}/address/get-list`,
+                dataType: "json",
+                type: "POST",
+                data: data,
+            })
+                .then(function (e) {
+                    console.log(e)
+                    let str = "";
+                    let list_bookmark = e.data.list.bookmark
+                    for (const key in list_bookmark) {
+                        // console.log(list[key])
+                        let custom_link = list_bookmark[key].link;
+                        custom_link = custom_link.length > 50 ? custom_link.slice(0, 50) + "..." : custom_link;
+                        str += `<div class="wrap-line">
+                            <a class="link" href="${list_bookmark[key].link}" obj="${list_bookmark[key]._id}"  target="_blank" title="${list_bookmark[key].link}">${list_bookmark[key].title}<span>${custom_link}</span></a>
+                            <div class="close" >
+                                <img src="./assets/images/more.png"/>   
+                                <div class="relative">
+                                    <div class="absolute-bg">
+                                        <a href="#" onClick=deleteItem("${list_bookmark[key]._id}") class="delete-btn">Delete</a>
+                                        <a href="#" onClick=deleteItem("${list_bookmark[key]._id}") class="update-btn">Change title</a>   
+                                    </div>
+                                </div>
+                            </div>
+                            </div>`;
+                    }
+                    $('.bookmark-view').html(str)
+                    let list_tool = e.data.list.tool;
+                    str="";
+                    for (const key in list_tool) {
+                        // console.log(list[key])
+                        let custom_link = list_tool[key].link;
+                        custom_link = custom_link.length > 50 ? custom_link.slice(0, 50) + "..." : custom_link;
+                        str += `<div class="wrap-line">
+                            <a class="link" href="${list_tool[key].link}" obj="${list_tool[key]._id}"  target="_blank" title="${list_tool[key].link}">${list_tool[key].title}<span>${custom_link}</span></a>
+                            <div class="close" >
+                                <img src="./assets/images/more.png"/>   
+                                <div class="relative">
+                                    <div class="absolute-bg">
+                                        <a href="#" onClick=deleteItem("${list_tool[key]._id}") class="delete-btn">Delete</a>
+                                        <a href="#" onClick=deleteItem("${list_tool[key]._id}") class="update-btn">Change title</a>   
+                                    </div>
+                                </div>
+                            </div>
+                            </div>`;
+                    }
+                    $('.tool-view').html(str)
+                });
+        }
+    }
+
+    // ===== ===== virtual query ===== ===== =====
+    async function newQuery(data) {
+        // console.log(data)
+        $('.input-search').val(data);
+        await submit_func(data);
+    }
+
+    // handle button and keyboard
+    $('.submit').click(function () {
+        submit_func(null);
+    })
+
+    $('#age').keypress(async function (event) {
+        let key_par = event.originalEvent;
+        // console.log(key_par.key + " " + key_par.keyCode);
+        if (key_par.keyCode == 13) {
+            await create_user();
+        }
+    })
+    $('.submit2').click(async function () {
+        await create_user();
+    })
+</script>

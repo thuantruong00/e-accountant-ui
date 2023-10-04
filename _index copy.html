@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-accountant</title>
+</head>
+
+<body>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <!-- 562534482065-euo6uusfbalt3lhe2gu39j2e465jna8k.apps.googleusercontent.com -->
+
+    <div id="g_id_onload" data-client_id="562534482065-euo6uusfbalt3lhe2gu39j2e465jna8k.apps.googleusercontent.com"
+        data-context="signin" data-ux_mode="popup" data-callback="login" data-auto_prompt="false">
+    </div>
+
+    <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with"
+        data-size="large" data-locale="en-US" data-logo_alignment="left">
+    </div>
+
+    <button id="btn">click</button>
+
+</body>
+
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+<script>
+
+
+
+
+    let token = '';
+    function login(e) {
+        console.log("OK")
+        // token = e.credential;
+        // console.log(e.credential)
+        console.log(e)
+    }
+    $("#btn").click(f1)
+
+    function f1() {
+        console.log(token);
+        $.ajax({
+            url: "https://www.googleapis.com/oauth2/v3/userinfo",
+            type: "GET",
+            headers: { Authorization: "Bearer " + token },
+        })
+        .then(function (e) {
+            console.log(e)
+        });
+    }
+    function f2() {
+        console.log(token);
+        $.ajax({
+            url: "http://127.0.0.1:8001/",
+            type: "POST",
+            data:{token:token}
+        })
+        .then(function (e) {
+            console.log(e)
+        });
+    }
+
+    // $.ajax({
+    //         url: "http://127.0.0.1:8001/",
+    //         type: "GET",
+    //     })
+</script>
