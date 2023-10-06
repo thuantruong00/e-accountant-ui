@@ -5,6 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- description -->
+    <meta name='description' content='E-accountant'>
+    <meta property='og:description' content='E-accountant'>
+    <meta name='twitter:description' content='E-accountant'>
+
+    <meta property='og:site_name' content='E-accountant'>
+    <meta property='og:type' content='website'>
+
+    <!-- image -->
+    <meta property="og:image" content="https://www.e-accountant.vn/assets/images/logo.png">
+    <meta property="og:image:alt" content="https://www.e-accountant.vn/assets/images/logo.png">
+    <meta name="twitter:image" content="https://www.e-accountant.vn/assets/images/logo.png">
+    <!-- Minimal -->
+    <link rel='icon' type='image/png' href='./assets/images/logo.png'>
+    <link rel='icon' sizes='192x192' href='https://www.e-accountant.vn/assets/images/logo.png'> <!-- web -->
+    <link rel='apple-touch-icon' href='https://www.e-accountant.vn/assets/images/logo.png'>
+    <meta name='msapplication-square310x310logo' content='logo.png'>
+    <!-- <link rel="icon" type="image/png" href="./imgs/logo_radius.png"> -->
+    <meta property='og:title' content='E-accountant'>
+    <meta name='twitter:title' content='E-accountant'>
+
     <title>E-accountant</title>
     <link rel="stylesheet" href="./assets/style/index.css">
     <link rel="stylesheet" href="./assets/style/reset.css">
@@ -35,7 +57,7 @@
             </div>
             <div class="main">
                 <div class="wrap-search">
-                    <input class="input-search" type="text" placeholder="text">
+                    <input class="input-search" type="text" placeholder="Search...">
                     <a href="#" class="submit">Enter</a>
                 </div>
                 <div class="wrap-result relative">
@@ -82,11 +104,13 @@
                         <div class="wrap-address-type">
                             <div>
                                 <label for="address-bookmark">Bookmark</label>
-                                <input class="address-type" type="radio" id="address-bookmark" name="address-type" checked value="bookmark">
+                                <input class="address-type" type="radio" id="address-bookmark" name="address-type"
+                                    checked value="bookmark">
                             </div>
                             <div>
                                 <label for="address-tool">Tool</label>
-                                <input class="address-type" type="radio" id="address-tool" name="address-type" value="tool">
+                                <input class="address-type" type="radio" id="address-tool" name="address-type"
+                                    value="tool">
                             </div>
                         </div>
                         <a href="#" class="bookmark-submit-btn">Add</a>
@@ -141,6 +165,11 @@
                 </div>
                 <a href="#" class="submit2 submit2-active">submit</a>
             </div>
+        </div>
+        <img class="logo-footer" src="./assets/images/logo.png" alt="">
+        <div class="footer">
+            
+            <div>Copyright 2023 © E-ACCOUNTANT.</div>
         </div>
     </div>
 
@@ -376,8 +405,8 @@
         let link = $('#bookmark-in1').val();
         let title = $('#bookmark-in2').val();
         let address_type;
-        $(".address-type").each(function(){
-            if($(this).prop('checked')){
+        $(".address-type").each(function () {
+            if ($(this).prop('checked')) {
                 address_type = $(this).val()
             }
         })
@@ -385,7 +414,7 @@
         let data = {
             link: link,
             title: title,
-            address_type:address_type,
+            address_type: address_type,
             token: token || null
         }
         if (token.length > 1 && link.length > 5 && title.length > 1) {
@@ -466,7 +495,7 @@
                     }
                     $('.bookmark-view').html(str)
                     let list_tool = e.data.list.tool;
-                    str="";
+                    str = "";
                     for (const key in list_tool) {
                         // console.log(list[key])
                         let custom_link = list_tool[key].link;

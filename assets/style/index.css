@@ -447,3 +447,25 @@
 .user-info{
     overflow: hidden;
 }
+.footer{
+    position: absolute;
+    bottom: 12px;
+    left: 20%;
+    /* display: flex;
+    align-items: center; */
+    font-weight: 600;
+    font-size: 14px;
+}
+.footer div{
+    position: relative;
+    z-index: 10;
+}
+.logo-footer{
+    width: 10vw;
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    z-index: 1;
+    opacity: 1;
+    border-radius: 12%;
+}
